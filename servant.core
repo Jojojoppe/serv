@@ -37,6 +37,7 @@ filesets:
       -  "tool_quartus? (servant/servant_ram_quartus.sv)" : {file_type : systemVerilogSource}
       - "!tool_quartus? (servant/servant_ram.v)"
       - servant/servant.v
+      - servant/servant_clog2.vh
     file_type : verilogSource
     depend : [award-winning:serv:servile, "mdu? (mdu)"]
 

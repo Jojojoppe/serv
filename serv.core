@@ -25,6 +25,7 @@ filesets:
       - rtl/serv_rf_top.v
       - rtl/serv_aligner.v
       - rtl/serv_compdec.v
+      - rtl/serv_clog2.vh
     file_type : verilogSource
 
   openlane:

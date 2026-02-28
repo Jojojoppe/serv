@@ -5,6 +5,7 @@
  * SPDX-License-Identifier: ISC
  */
 `default_nettype none
+`include "serv_clog2.vh"
 module serv_rf_ram_if
   #(//Data width. Adjust to preferred width of SRAM data interface
     parameter width=8,
@@ -21,8 +22,8 @@ module serv_rf_ram_if
 
     //Internal parameters calculated from above values. Do not change
     parameter B=W-1,
-    parameter raw=$clog2(32+csr_regs), //Register address width
-    parameter l2w=$clog2(width), //log2 of width
+    parameter raw=`CLOG2(32+csr_regs), //Register address width
+    parameter l2w=`CLOG2(width), //log2 of width
     parameter aw=5+raw-l2w) //Address width
   (
    //SERV side
@@ -50,8 +51,8 @@ module serv_rf_ram_if
    input wire [width-1:0]  i_rdata);
 
    localparam ratio = width/W;
-   localparam CMSB = 4-$clog2(W); //Counter MSB
-   localparam l2r  = $clog2(ratio);
+   localparam CMSB = 4-`CLOG2(W); //Counter MSB
+   localparam l2r  = `CLOG2(ratio);
 
    reg 				   rgnt;
    assign o_ready = rgnt | i_wreq;

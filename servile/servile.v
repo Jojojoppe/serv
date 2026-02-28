@@ -6,6 +6,7 @@
  */
 
 `default_nettype none
+`include "servile_clog2.vh"
 module servile
   #(
     parameter	    width = 1,
@@ -20,7 +21,7 @@ module servile
     //Internally calculated. Do not touch
     parameter	    B = width-1,
     parameter	    regs = 32+with_csr*4,
-    parameter	    rf_l2d = $clog2(regs*32/rf_width))
+    parameter	    rf_l2d = `CLOG2(regs*32/rf_width))
   (
    input wire		      i_clk,
    input wire		      i_rst,
@@ -77,14 +78,14 @@ module servile
 
    wire 		   rf_wreq;
    wire 		   rf_rreq;
-   wire [$clog2(regs)-1:0] wreg0;
-   wire [$clog2(regs)-1:0] wreg1;
+   wire [`CLOG2(regs)-1:0] wreg0;
+   wire [`CLOG2(regs)-1:0] wreg1;
    wire 		   wen0;
    wire 		   wen1;
    wire [B:0]		   wdata0;
    wire [B:0]		   wdata1;
-   wire [$clog2(regs)-1:0] rreg0;
-   wire [$clog2(regs)-1:0] rreg1;
+   wire [`CLOG2(regs)-1:0] rreg0;
+   wire [`CLOG2(regs)-1:0] rreg1;
    wire 		   rf_ready;
    wire [B:0]		   rdata0;
    wire [B:0]		   rdata1;

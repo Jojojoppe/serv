@@ -1,4 +1,5 @@
 `default_nettype none
+`include "servant_clog2.vh"
 module servant
 (
  input wire  wb_clk,
@@ -22,11 +23,11 @@ module servant
    localparam [0:0] with_mdu = 1'b0;
 `endif
 
-   localparam	   aw = $clog2(memsize);
+   localparam	   aw = `CLOG2(memsize);
    localparam	   csr_regs = with_csr*4;
 
    localparam	   rf_width = width * 2;
-   localparam	   rf_l2d   = $clog2((32+csr_regs)*32/rf_width);
+   localparam	   rf_l2d   = `CLOG2((32+csr_regs)*32/rf_width);
 
    wire 	timer_irq;
 
@@ -94,7 +95,7 @@ module servant
      (// Wishbone interface
       .i_wb_clk (wb_clk),
       .i_wb_rst (wb_rst),
-      .i_wb_adr (wb_mem_adr[$clog2(memsize)-1:2]),
+      .i_wb_adr (wb_mem_adr[`CLOG2(memsize)-1:2]),
       .i_wb_cyc (wb_mem_stb),
       .i_wb_we  (wb_mem_we) ,
       .i_wb_sel (wb_mem_sel),

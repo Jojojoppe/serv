@@ -18,10 +18,11 @@
  */
 
 `default_nettype none
+`include "serving_clog2.vh"
 module serving_ram
   #(//Memory parameters
     parameter depth = 256,
-    parameter aw    = $clog2(depth),
+    parameter aw    = `CLOG2(depth),
     parameter memfile = "")
    (input wire		i_clk,
     input wire [aw-1:0]	i_waddr,

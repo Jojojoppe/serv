@@ -9,6 +9,7 @@ filesets:
     files:
       - serving/serving_ram.v
       - serving/serving.v
+      - serving/serving_clog2.vh
     file_type : verilogSource
     depend : [award-winning:serv:servile]
 

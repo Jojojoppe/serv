@@ -1,8 +1,9 @@
 `default_nettype none
+`include "servant_clog2.vh"
 module servant_ram
   #(//Memory parameters
     parameter depth = 256,
-    parameter aw    = $clog2(depth),
+    parameter aw    = `CLOG2(depth),
     parameter RESET_STRATEGY = "",
     parameter memfile = "")
    (input wire 		i_wb_clk,

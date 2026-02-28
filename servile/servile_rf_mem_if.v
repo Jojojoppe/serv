@@ -6,14 +6,15 @@
  */
 
 `default_nettype none
+`include "servile_clog2.vh"
 module servile_rf_mem_if
   #(//Memory parameters
     parameter depth = 256,
     //RF parameters
     parameter rf_regs = 32,
     //Internally calculated. Do not touch
-    parameter rf_depth = $clog2(rf_regs*4),
-    parameter aw = $clog2(depth))
+    parameter rf_depth = `CLOG2(rf_regs*4),
+    parameter aw = `CLOG2(depth))
    (
     input wire		      i_clk,
     input wire		      i_rst,

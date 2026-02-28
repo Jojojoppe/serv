@@ -18,6 +18,7 @@
  */
 
 `default_nettype none
+`include "serving_clog2.vh"
 module serving
   (
    input wire 	      i_clk,
@@ -56,10 +57,10 @@ module serving
    wire [rf_width-1:0] rf_rdata;
    wire		       rf_ren;
 
-   wire [$clog2(memsize)-1:0] sram_waddr;
+   wire [`CLOG2(memsize)-1:0] sram_waddr;
    wire [rf_width-1:0] sram_wdata;
    wire 	       sram_wen;
-   wire [$clog2(memsize)-1:0] sram_raddr;
+   wire [`CLOG2(memsize)-1:0] sram_raddr;
    wire [rf_width-1:0] sram_rdata;
    wire		       sram_ren;
 
@@ -98,7 +99,7 @@ module serving
       .i_sram_rdata (sram_rdata),
       .o_sram_ren   (sram_ren),
 
-      .i_wb_adr (wb_mem_adr[$clog2(memsize)-1:2]),
+      .i_wb_adr (wb_mem_adr[`CLOG2(memsize)-1:2]),
       .i_wb_stb (wb_mem_stb),
       .i_wb_we  (wb_mem_we) ,
       .i_wb_sel (wb_mem_sel),

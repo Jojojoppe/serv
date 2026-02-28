@@ -5,6 +5,7 @@
  * SPDX-License-Identifier: ISC
  */
 `default_nettype none
+`include "serv_clog2.vh"
 
 module serv_synth_wrapper
   #(
@@ -22,7 +23,7 @@ module serv_synth_wrapper
     parameter RESET_STRATEGY = "MINI",
     parameter WITH_CSR = 1,
     parameter RF_WIDTH = 2,
-	parameter RF_L2D   = $clog2((32+(WITH_CSR*4))*32/RF_WIDTH))
+	parameter RF_L2D   = `CLOG2((32+(WITH_CSR*4))*32/RF_WIDTH))
   (
    input wire 		      clk,
    input wire 		      i_rst,

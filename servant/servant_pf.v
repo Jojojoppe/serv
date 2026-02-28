@@ -1,5 +1,5 @@
 `default_nettype none
-
+`include "servant_clog2.vh"
 module servant_pf (
 	input  wire i_clk,
 	input  wire resetb,
@@ -45,7 +45,7 @@ module servant_pf (
 	);
 
 	// heartbeat LED
-	reg [$clog2(32000000)-1:0] count = 0;
+	reg [`CLOG2(32000000)-1:0] count = 0;
 	always @(posedge clk) begin
 		if (rst) begin
 			count <= 0;

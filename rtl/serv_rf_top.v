@@ -5,6 +5,7 @@
  * SPDX-License-Identifier: ISC
  */
 `default_nettype none
+`include "serv_clog2.vh"
 
 module serv_rf_top
   #(parameter RESET_PC = 32'd0,
@@ -37,7 +38,7 @@ module serv_rf_top
     parameter WITH_CSR = 1,
     parameter W        = 1,
     parameter RF_WIDTH = W * 2,
-	parameter RF_L2D   = $clog2((32+(WITH_CSR*4))*32/RF_WIDTH))
+	parameter RF_L2D   = `CLOG2((32+(WITH_CSR*4))*32/RF_WIDTH))
   (
    input wire 	      clk,
    input wire 	      i_rst,
