@@ -11,7 +11,7 @@ filesets:
       - servile/servile_mux.v
       - servile/servile_arbiter.v
       - servile/servile.v
-      - servile/servile_clog2.vh
+      - servile/servile_clog2.vh : {is_include_file : true, include_path : servile}
     file_type: verilogSource
     depend : [award-winning:serv:serv]
 

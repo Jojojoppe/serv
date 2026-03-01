@@ -37,7 +37,7 @@ filesets:
       -  "tool_quartus? (servant/servant_ram_quartus.sv)" : {file_type : systemVerilogSource}
       - "!tool_quartus? (servant/servant_ram.v)"
       - servant/servant.v
-      - servant/servant_clog2.vh
+      - servant/servant_clog2.vh : {is_include_file : true, include_path : servant}
     file_type : verilogSource
     depend : [award-winning:serv:servile, "mdu? (mdu)"]
 
@@ -800,4 +800,3 @@ generate:
 scripts:
   jbc:
     cmd : [quartus_jbcc, "-n", servant_1_2_1_pof.jam, servant_1_2_1_pof.jbc]
-

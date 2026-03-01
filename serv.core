@@ -25,7 +25,7 @@ filesets:
       - rtl/serv_rf_top.v
       - rtl/serv_aligner.v
       - rtl/serv_compdec.v
-      - rtl/serv_clog2.vh
+      - rtl/serv_clog2.vh : {is_include_file : true, include_path : rtl}
     file_type : verilogSource
 
   openlane:
@@ -107,4 +107,3 @@ parameters:
     datatype    : int
     description : Internal datapath width (1=SERV, 4=QERV)
     paramtype   : vlogparam
-
